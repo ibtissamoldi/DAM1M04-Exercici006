@@ -224,3 +224,32 @@ body {
         display: block;
     }
 }
+.tab-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.tab-buttons label {
+    padding: 0.5rem 1rem;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.tab-buttons label:hover {
+    background: #ccc;
+}
+.tab-contenido > div {
+    display: none;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+#pagina-interaccion:has(#tab1:checked) .content-1 {
+    display: block;
+}
+#pagina-interaccio:has(#tab2:checked) .content-2 {
+    display: block;
+}
