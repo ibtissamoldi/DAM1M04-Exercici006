@@ -228,6 +228,7 @@ body {
     display: flex;
     gap: 1rem;
 }
+
 .tab-buttons label {
     padding: 0.5rem 1rem;
     background: #ddd;
@@ -239,6 +240,7 @@ body {
 .tab-buttons label:hover {
     background: #ccc;
 }
+
 .tab-contenido > div {
     display: none;
     padding: 1rem;
@@ -247,11 +249,20 @@ body {
     border-radius: 5px;
     background: #f9f9f9;
 }
-#pagina-interaccion:has(#tab1:checked) .content-1 {
+
+#tab1:checked ~ .tab-buttons ~ .tab-contenido .content-1,
+#tab2:checked ~ .tab-buttons ~ .tab-contenido .content-2 {
     display: block;
 }
-#pagina-interaccio:has(#tab2:checked) .content-2 {
-    display: block;
+
+#pagina-interaccion:has(#tab1:checked) .tab-buttons label[for="tab1"] {
+    background: #4a90e2;
+    color: white;
+}
+
+#pagina-interaccion:has(#tab2:checked) .tab-buttons label[for="tab2"] {
+    background: #4a90e2;
+    color: white;
 }
 .flip-card-container {
     perspective: 1000px;
@@ -273,10 +284,6 @@ body {
     transform-style: preserve-3d;
 }
 
-#pagina-interaccion:has(#flip-toggle:checked) .flip-card-in {
-    transform: rotateY(180deg);
-}
-
 .flip-card-frente,
 .flip-card-tras {
     position: absolute;
@@ -296,6 +303,13 @@ body {
     transform: rotateY(180deg);
 }
 
+#flip-toggle:checked ~ .flip-card .flip-card-in {
+    transform: rotateY(180deg);
+}
+
+#pagina-interaccion:has(#flip-toggle:checked) .flip-card-frente {
+    opacity: 0.8;
+}
 .flip-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
